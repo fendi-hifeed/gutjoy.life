@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GutJoy - Happy Gut, Happy Day</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary-fixed": "#ffdad8",
+                      "on-primary-container": "#fffbff",
+                      "on-secondary-fixed-variant": "#0039b5",
+                      "surface-dim": "#ccdbf3",
+                      "secondary": "#1d4ed8",
+                      "on-primary-fixed": "#410007",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary-fixed": "#1b1c1a",
+                      "surface-container-lowest": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#b7c4ff",
+                      "tertiary-fixed-dim": "#c7c7c3",
+                      "primary": "#b7102a",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-surface": "#0d1c2e",
+                      "error": "#ba1a1a",
+                      "surface": "#f8f9ff",
+                      "outline": "#8f6f6e",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#ffb3b1",
+                      "tertiary-fixed": "#e3e2df",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#747572",
+                      "primary-container": "#db313f",
+                      "on-secondary-fixed": "#001551",
+                      "surface-tint": "#bb152c",
+                      "surface-container-highest": "#d5e3fc",
+                      "surface-variant": "#d5e3fc",
+                      "surface-container-high": "#dce9ff",
+                      "surface-bright": "#f8f9ff",
+                      "on-tertiary-container": "#fdfcf8",
+                      "on-primary-fixed-variant": "#92001c",
+                      "surface-container-low": "#eff4ff",
+                      "on-error-container": "#93000a",
+                      "outline-variant": "#e4bebc",
+                      "secondary-container": "#4069f2",
+                      "on-tertiary-fixed-variant": "#464744",
+                      "inverse-primary": "#ffb3b1",
+                      "background": "#f8f9ff",
+                      "secondary-fixed": "#dce1ff",
+                      "surface-container": "#e6eeff",
+                      "inverse-surface": "#233144",
+                      "tertiary": "#5b5c59",
+                      "on-background": "#0d1c2e",
+                      "on-surface-variant": "#5b403f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "1rem",
+                      "3xl": "1.5rem",
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "section-gap": "80px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Work Sans"
+                      ],
+                      "body-md": [
+                              "Work Sans"
+                      ],
+                      "label-md": [
+                              "Work Sans"
+                      ],
+                      "headline-xl": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Work Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .cloud-shadow {
+            box-shadow: 0 10px 40px -10px rgba(29, 78, 216, 0.08);
+        }
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(29, 78, 216, 0.12);
+        }
+        .soft-gradient {
+            background: linear-gradient(135deg, rgba(248,249,255,1) 0%, rgba(220,233,255,0.4) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md shadow-sm dark:shadow-none transition-all duration-300" id="main-nav">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed">GutJoy</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-primary/5 dark:hover:bg-primary-fixed/10 px-3 py-2 rounded-md" href="#about">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-primary/5 dark:hover:bg-primary-fixed/10 px-3 py-2 rounded-md" href="#partnership">Partnership</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-primary/5 dark:hover:bg-primary-fixed/10 px-3 py-2 rounded-md" href="#contact">Contact</a>
+</div>
+<div class="flex items-center">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-lg hover:bg-primary-container hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] transition-all scale-95 active:scale-90 hidden md:block">
+                Join Us
+            </button>
+<button class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop soft-gradient min-h-[90vh] flex items-center relative overflow-hidden">
+<!-- Decorative blobs -->
+<div class="absolute top-20 right-[-10%] w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-10 left-[-5%] w-72 h-72 bg-secondary/5 rounded-full blur-3xl"></div>
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center relative z-10">
+<div class="flex flex-col gap-6 max-w-2xl">
+<div class="inline-flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full w-fit">
+<span class="text-primary font-label-md text-label-md">GUTJOY</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-secondary font-label-md text-label-md">Happy Gut, Happy Day</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">
+                    Kebahagiaan Dimulai dari <span class="text-primary">Usus yang Sehat</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Nikmati yogurt segar kaya probiotik setiap hari. Rasakan tekstur lembut dan manfaat kesehatan yang mengubah harimu menjadi lebih cerah.
+                </p>
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-3.5 rounded-lg hover:bg-primary-container hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] cloud-shadow transition-all hover:-translate-y-0.5">
+                        Belanja Sekarang
+                    </button>
+<button class="border-2 border-secondary text-secondary font-label-md text-label-md px-8 py-3.5 rounded-lg hover:bg-secondary/5 transition-all">
+                        Pelajari Lebih Lanjut
+                    </button>
+</div>
+<div class="flex items-center gap-4 mt-8 pt-8 border-t border-surface-container-highest">
+<img alt="GutJoy Logo" class="h-12 w-auto object-contain mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh3fuAIDy1E1YmJHkpv1U-_iuQJeAMznHAdc2oVuJOWjL3TF6DEM83q4Sfbf7clqWzbEIU_hL3poGynNTV5TGQkkZs4eDsumG6Wkszf5n3pmdjju3z4L62ixywXEEn65k5T9H8jpxBeFM5mKQQHRoT78ZSTYAtouhVbJh3mEQ23ncNfqvCzGp02G75kPOf7qTMNutBVaEF1sJ6j0qdYyukL4gSPFvIzeNQRNEyDBikRVQLBKw9oTTrUqyh6EdrkIuuhj6S-fuKaaL1"/>
+</div>
+</div>
+<div class="relative mt-12 lg:mt-0">
+<div class="aspect-square md:aspect-[4/3] lg:aspect-square relative rounded-3xl overflow-hidden cloud-shadow group">
+<img alt="GutJoy Campaign Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs5EpJWWAU7aQQKJwXOVMNQDaJYrExysfM8dAmO3twfBmuIBefSEvmRxfBH6Z6_IZhN9VURZgJHcxpNcJ5yflfUza-ryHJ8ayPGubZ4VUhh9OPXG6cw2zfDSbFIs9NdZtFF6f1jCupr8a2jBVmaEIn6DikjBafBJ26-YMz0yUje1vftEAMlDkhg6v0lJgYRMe2H6GRUaALwQSZKfXiDfcYo-aWbG_K0MRmIsG6uu-i0DD2LRHrDRrfwXhqlCDYytduBQhFZFrJV_tD"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+</div>
+<!-- Floating Badge -->
+<div class="absolute -bottom-6 -left-6 md:-left-12 bg-surface-container-lowest p-4 rounded-2xl cloud-shadow flex items-center gap-4 animate-[bounce_4s_infinite]">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined icon-fill">favorite</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface">100%</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Bahan Alami</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="about">
+<div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+<h2 class="font-label-md text-label-md text-secondary tracking-widest uppercase">Tentang GutJoy</h2>
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">
+                Kami Percaya Kesehatan Harus Menjadi <span class="text-primary">Kebiasaan yang Menyenangkan</span>
+</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                GutJoy hadir untuk membuktikan bahwa menjaga kesehatan usus tidak perlu membosankan. Dengan perpaduan rasa yang lezat dan manfaat probiotik yang kuat, kami membuat rutinitas sehat menjadi momen yang paling Anda tunggu setiap hari.
+            </p>
+</div>
+</section>
+<!-- Features / Benefits -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Lebih dari Sekadar Yogurt</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Kebaikan alam dalam setiap sendok untuk mendukung gaya hidup aktifmu.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Feature 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl hover-lift">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl">science</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3">Kaya Probiotik</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Mengandung miliaran bakteri baik untuk menyeimbangkan mikroflora usus Anda.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl hover-lift">
+<div class="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3">Rasa Premium</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Tekstur selembut sutra dengan varian rasa buah asli yang menyegarkan.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl hover-lift">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl">eco</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3">Bahan Berkualitas</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Hanya menggunakan susu segar dan buah-buahan pilihan tanpa pengawet buatan.</p>
+</div>
+<!-- Feature 4 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl hover-lift">
+<div class="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined text-3xl">directions_run</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3">Gaya Hidup Aktif</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Mendukung energi harian dan sistem imun untuk aktivitas tanpa henti.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Partnership / Pricing -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low relative" id="partnership">
+<!-- Abstract bg shapes -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/40 to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center mb-16">
+<span class="bg-secondary/10 text-secondary font-label-md px-3 py-1 rounded-full inline-block mb-4">Peluang Bisnis</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Bergabung Bersama GutJoy</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Pilih paket kemitraan yang sesuai dengan skala bisnis Anda dan mulai sebarkan kebahagiaan.</p>
+</div>
+<!-- Context Images Above Cards -->
+<div class="grid grid-cols-1 gap-gutter mb-12"><img alt="GutJoy Professional Product Lineup" class="w-full h-96 object-cover rounded-2xl cloud-shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSmt960YK5WIjDoO4Rb3R5lMJJMKzvqPsqGH9wtzGwYrP2ZfieCPx7hQVmAjEKY7BEnUhlWbHyl_RUvsyiOdckCGehQFRPrpmJYwOlD6KcEbFcg-Ti6qH5Ot6Yz7aCOP6CXAT5IMG-CAX8KpNcwHbCW7hjFGgNZ2LWCZYchQcvgObvxTsjHTQ1qB9NqxBVzohnsWvboFBOMOdjiBy4GW1GF0gnpSQBn6X4mKsOdXL04h68eU8Q_6RDbrS3THFzDqXgVmpeLjz5j-uy"/></div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter items-stretch">
+<!-- Reseller -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 flex flex-col border border-surface-container-high cloud-shadow hover-lift">
+<div class="mb-6">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Reseller</h4>
+<p class="font-body-md text-on-surface-variant mb-4">Langkah awal untuk bisnis mandiri.</p>
+<div class="text-primary font-headline-lg-mobile text-headline-lg-mobile font-bold">Mulai 1Jt</div>
+</div>
+<ul class="flex flex-col gap-3 mb-8 flex-grow">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Modal terjangkau</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Materi promosi digital</span>
+</li>
+</ul>
+<button class="w-full py-3 rounded-lg border-2 border-primary text-primary font-label-md hover:bg-primary/5 transition-colors mt-auto">Pilih Paket</button>
+</div>
+<!-- Agen (Highlighted) -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 flex flex-col border-2 border-secondary relative cloud-shadow hover-lift transform md:-translate-y-4">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-on-secondary px-4 py-1 rounded-full font-label-sm tracking-wide uppercase">Populer</div>
+<div class="mb-6 mt-2">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Agen</h4>
+<p class="font-body-md text-on-surface-variant mb-4">Jangkauan lebih luas, margin lebih besar.</p>
+<div class="text-secondary font-headline-lg-mobile text-headline-lg-mobile font-bold">Mulai 5Jt</div>
+</div>
+<ul class="flex flex-col gap-3 mb-8 flex-grow">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Harga khusus agen</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Support chiller (S&amp;K)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Brosur &amp; Spanduk</span>
+</li>
+</ul>
+<button class="w-full py-3 rounded-lg bg-secondary text-on-secondary font-label-md hover:bg-on-secondary-fixed-variant transition-colors mt-auto shadow-md">Daftar Agen</button>
+</div>
+<!-- Distributor -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 flex flex-col border border-surface-container-high cloud-shadow hover-lift">
+<div class="mb-6">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Distributor</h4>
+<p class="font-body-md text-on-surface-variant mb-4">Kuasai area dan bangun jaringan.</p>
+<div class="text-primary font-headline-lg-mobile text-headline-lg-mobile font-bold">Hubungi Kami</div>
+</div>
+<ul class="flex flex-col gap-3 mb-8 flex-grow">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Eksklusivitas wilayah</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Margin maksimal</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Support marketing full</span>
+</li>
+</ul>
+<button class="w-full py-3 rounded-lg border-2 border-primary text-primary font-label-md hover:bg-primary/5 transition-colors mt-auto">Konsultasi</button>
+</div>
+<!-- HORECA -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 flex flex-col border border-surface-container-high cloud-shadow hover-lift">
+<div class="mb-6">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Horeca</h4>
+<p class="font-body-md text-on-surface-variant mb-4">Solusi B2B untuk bisnis Anda.</p>
+<div class="text-primary font-headline-lg-mobile text-headline-lg-mobile font-bold">Custom</div>
+</div>
+<ul class="flex flex-col gap-3 mb-8 flex-grow">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Kemasan bulk/grosir</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<span class="font-body-md text-on-surface">Suplai rutin terjamin</span>
+</li>
+</ul>
+<button class="w-full py-3 rounded-lg border-2 border-primary text-primary font-label-md hover:bg-primary/5 transition-colors mt-auto">Hubungi Tim</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Commitment -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-primary text-on-primary text-center">
+<div class="max-w-4xl mx-auto flex flex-col items-center">
+<span class="material-symbols-outlined text-5xl mb-6 opacity-80">public</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Membangun Generasi yang Lebih Sehat</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim">Bersama GutJoy, mari kita wujudkan masyarakat yang peduli pada kesehatan pencernaan, satu sendok setiap harinya.</p>
+</div>
+</section>
+<!-- Footer Component -->
+<footer class="w-full py-section-gap px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter bg-surface-container dark:bg-inverse-surface border-t border-surface-variant dark:border-none">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md font-bold text-primary">
+                GutJoy
+            </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm">
+                Happy Gut, Happy Day. Memberikan kebaikan probiotik untuk keseharian yang lebih menyenangkan.
+            </p>
+</div>
+<div class="flex flex-col gap-3 md:col-span-1">
+<h5 class="font-label-md text-label-md text-on-surface font-semibold mb-2">Tautan Pantas</h5>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors underline-offset-4 hover:underline" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors underline-offset-4 hover:underline" href="#">Shipping Info</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors underline-offset-4 hover:underline" href="#">FAQ</a>
+</div>
+<div class="flex flex-col gap-3 md:items-end justify-between">
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary hover:bg-secondary hover:text-on-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+</div>
+<div class="font-body-md text-body-md text-secondary dark:text-secondary-fixed mt-8 md:mt-0 text-left md:text-right">
+                © 2024 GutJoy Life. Happy Gut, Happy Day. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('py-4');
+                nav.classList.add('py-2');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.remove('py-2');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
+</body></html>
