@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer
@@ -5,9 +7,13 @@ export default function Footer() {
       className="w-full py-20 px-4 md:px-16 grid grid-cols-1 md:grid-cols-4 gap-8 bg-surface-container border-t border-surface-variant"
     >
       <div className="flex flex-col gap-4">
-        <div className="font-[family-name:var(--font-headline-md)] text-xl font-bold text-primary">
-          GutJoy
-        </div>
+        <Image
+          src="/logo.png"
+          alt="GutJoy Logo"
+          width={150}
+          height={60}
+          className="h-10 md:h-12 w-auto object-contain"
+        />
         <p className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant max-w-sm">
           Happy Gut, Happy Day. Memberikan kebaikan probiotik untuk keseharian
           yang lebih menyenangkan.

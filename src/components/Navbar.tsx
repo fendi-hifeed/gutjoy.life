@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,9 +23,13 @@ export default function Navbar() {
       id="main-nav"
     >
       <div className="flex items-center gap-2">
-        <span className="font-[family-name:var(--font-headline-md)] text-xl md:text-2xl font-bold tracking-tight text-primary">
-          GutJoy
-        </span>
+        <Image
+          src="/logo.png"
+          alt="GutJoy Logo"
+          width={120}
+          height={48}
+          className="h-8 md:h-10 w-auto object-contain"
+        />
       </div>
 
       <div className="hidden md:flex items-center gap-8">
