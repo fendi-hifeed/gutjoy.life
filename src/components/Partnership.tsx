@@ -9,7 +9,7 @@ const partnershipTiers = [
     features: ["Modal terjangkau", "Materi promosi digital"],
     buttonText: "Pilih Paket",
     buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
-    whatsappText: "Halo GutJoy! Saya tertarik menjadi Reseller.",
+    whatsappText: "Halo GutJoy! Saya tertarik menjadi Reseller. Mohon info paket dan syaratnya.",
   },
   {
     name: "Agen",
@@ -23,7 +23,7 @@ const partnershipTiers = [
     ],
     buttonText: "Daftar Agen",
     buttonStyle: "bg-secondary text-on-secondary hover:bg-on-secondary-fixed-variant shadow-md",
-    whatsappText: "Halo GutJoy! Saya tertarik menjadi Agen.",
+    whatsappText: "Halo GutJoy! Saya tertarik menjadi Agen. Mohon info paket dan syaratnya.",
   },
   {
     name: "Distributor",
@@ -37,7 +37,7 @@ const partnershipTiers = [
     ],
     buttonText: "Konsultasi",
     buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
-    whatsappText: "Halo GutJoy! Saya tertarik menjadi Distributor.",
+    whatsappText: "Halo GutJoy! Saya tertarik menjadi Distributor. Mohon info paket dan syaratnya.",
   },
   {
     name: "Horeca",
@@ -47,7 +47,7 @@ const partnershipTiers = [
     features: ["Kemasan bulk/grosir", "Suplai rutin terjamin"],
     buttonText: "Hubungi Tim",
     buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
-    whatsappText: "Halo GutJoy! Saya tertarik untuk kemitraan B2B/Horeca.",
+    whatsappText: "Halo GutJoy! Saya tertarik untuk kemitraan B2B/Horeca. Mohon info dan报价.",
   },
 ];
 

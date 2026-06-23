@@ -1,5 +1,7 @@
 export default function Footer() {
-  const whatsappLink = "https://wa.me/628971304418";
+  const whatsappGeneral = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20tertarik%20dengan%20produk%20yogurt%20probiotik.";
+  const whatsappHubungi = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20ingin%20bertanya%20mengenai%20produk%20dan%20layanan.";
+  const whatsappFAQ = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20ingin%20bertanya%20mengenai%20FAQ.";
   const instagramLink = "https://www.instagram.com/gutjoylife/";
 
   return (
@@ -28,7 +30,7 @@ export default function Footer() {
             </svg>
           </a>
           <a
-            href={whatsappLink}
+            href={whatsappGeneral}
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary hover:bg-secondary hover:text-on-secondary transition-colors"
@@ -59,7 +61,7 @@ export default function Footer() {
         </a>
         <a
           className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline"
-          href={whatsappLink}
+          href={whatsappHubungi}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -67,7 +69,7 @@ export default function Footer() {
         </a>
         <a
           className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline"
-          href={whatsappLink}
+          href={whatsappFAQ}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -97,7 +99,7 @@ export default function Footer() {
 
       <div className="flex flex-col gap-3 md:items-end justify-between">
         <a
-          href={whatsappLink}
+          href={whatsappHubungi}
           target="_blank"
           rel="noopener noreferrer"
           className="bg-secondary text-on-secondary font-[family-name:var(--font-label-md)] text-sm px-6 py-3 rounded-lg hover:bg-on-secondary-fixed-variant transition-all flex items-center gap-2 w-fit"

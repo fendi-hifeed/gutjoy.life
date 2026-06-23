@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function Hero() {
-  const whatsappLink = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20tertarik%20dengan%20produk%20yogurt%20probiotik.";
+  const whatsappLink = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20tertarik%20untuk%20membeli%20yogurt.%20Bisa%20info%20produk%20dan%20harga?";
 
   return (
     <section className="pt-[120px] pb-20 md:pb-20 px-4 md:px-16 soft-gradient min-h-[90vh] flex items-center relative overflow-hidden">

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const whatsappLink = "https://wa.me/628971304418";
+  const whatsappLink = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20tertarik%20dengan%20program%20Join%20Us.";
 
   useEffect(() => {
     const handleScroll = () => {
