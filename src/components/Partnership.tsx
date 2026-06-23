@@ -9,6 +9,7 @@ const partnershipTiers = [
     features: ["Modal terjangkau", "Materi promosi digital"],
     buttonText: "Pilih Paket",
     buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
+    whatsappText: "Halo GutJoy! Saya tertarik menjadi Reseller.",
   },
   {
     name: "Agen",
@@ -22,6 +23,7 @@ const partnershipTiers = [
     ],
     buttonText: "Daftar Agen",
     buttonStyle: "bg-secondary text-on-secondary hover:bg-on-secondary-fixed-variant shadow-md",
+    whatsappText: "Halo GutJoy! Saya tertarik menjadi Agen.",
   },
   {
     name: "Distributor",
@@ -35,6 +37,7 @@ const partnershipTiers = [
     ],
     buttonText: "Konsultasi",
     buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
+    whatsappText: "Halo GutJoy! Saya tertarik menjadi Distributor.",
   },
   {
     name: "Horeca",
@@ -44,6 +47,7 @@ const partnershipTiers = [
     features: ["Kemasan bulk/grosir", "Suplai rutin terjamin"],
     buttonText: "Hubungi Tim",
     buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
+    whatsappText: "Halo GutJoy! Saya tertarik untuk kemitraan B2B/Horeca.",
   },
 ];
 
@@ -82,53 +86,59 @@ export default function Partnership() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
-          {partnershipTiers.map((tier, index) => (
-            <div
-              key={index}
-              className={`bg-surface-container-lowest rounded-3xl p-8 flex flex-col border ${
-                tier.isPopular
-                  ? "border-2 border-secondary relative transform md:-translate-y-4"
-                  : "border-surface-container-high"
-              } cloud-shadow hover-lift`}
-            >
-              {tier.isPopular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-on-secondary px-4 py-1 rounded-full font-[family-name:var(--font-label-sm)] text-xs tracking-wide uppercase">
-                  Populer
-                </div>
-              )}
-
-              <div className="mb-6 mt-2">
-                <h4 className="font-[family-name:var(--font-headline-md)] text-xl text-on-surface mb-2">
-                  {tier.name}
-                </h4>
-                <p className="font-[family-name:var(--font-body-md)] text-on-surface-variant mb-4">
-                  {tier.description}
-                </p>
-                <div className="text-primary font-[family-name:var(--font-headline-lg)] text-2xl font-bold">
-                  {tier.price}
-                </div>
-              </div>
-
-              <ul className="flex flex-col gap-3 mb-8 flex-grow">
-                {tier.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-2">
-                    <span className="material-symbols-outlined text-secondary text-xl">
-                      check_circle
-                    </span>
-                    <span className="font-[family-name:var(--font-body-md)] text-on-surface">
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                className={`w-full py-3 rounded-lg font-[family-name:var(--font-label-md)] text-sm transition-colors mt-auto ${tier.buttonStyle}`}
+          {partnershipTiers.map((tier, index) => {
+            const whatsappLink = `https://wa.me/628971304418?text=${encodeURIComponent(tier.whatsappText)}`;
+            return (
+              <div
+                key={index}
+                className={`bg-surface-container-lowest rounded-3xl p-8 flex flex-col border ${
+                  tier.isPopular
+                    ? "border-2 border-secondary relative transform md:-translate-y-4"
+                    : "border-surface-container-high"
+                } cloud-shadow hover-lift`}
               >
-                {tier.buttonText}
-              </button>
-            </div>
-          ))}
+                {tier.isPopular && (
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-on-secondary px-4 py-1 rounded-full font-[family-name:var(--font-label-sm)] text-xs tracking-wide uppercase">
+                    Populer
+                  </div>
+                )}
+
+                <div className="mb-6 mt-2">
+                  <h4 className="font-[family-name:var(--font-headline-md)] text-xl text-on-surface mb-2">
+                    {tier.name}
+                  </h4>
+                  <p className="font-[family-name:var(--font-body-md)] text-on-surface-variant mb-4">
+                    {tier.description}
+                  </p>
+                  <div className="text-primary font-[family-name:var(--font-headline-lg)] text-2xl font-bold">
+                    {tier.price}
+                  </div>
+                </div>
+
+                <ul className="flex flex-col gap-3 mb-8 flex-grow">
+                  {tier.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-2">
+                      <span className="material-symbols-outlined text-secondary text-xl">
+                        check_circle
+                      </span>
+                      <span className="font-[family-name:var(--font-body-md)] text-on-surface">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3 rounded-lg font-[family-name:var(--font-label-md)] text-sm transition-colors mt-auto text-center ${tier.buttonStyle}`}
+                >
+                  {tier.buttonText}
+                </a>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
