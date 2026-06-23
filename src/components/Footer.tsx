@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="w-full py-20 px-4 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-6 bg-surface-container border-t border-surface-variant"
+      className="w-full py-20 px-4 md:px-16 grid grid-cols-1 md:grid-cols-4 gap-8 bg-surface-container border-t border-surface-variant"
     >
       <div className="flex flex-col gap-4">
         <div className="font-[family-name:var(--font-headline-md)] text-xl font-bold text-primary">
@@ -14,7 +14,7 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-3 md:col-span-1">
+      <div className="flex flex-col gap-3">
         <h5 className="font-[family-name:var(--font-label-md)] text-sm text-on-surface font-semibold mb-2">
           Tautan Pantas
         </h5>
@@ -42,6 +42,26 @@ export default function Footer() {
         >
           FAQ
         </a>
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <h5 className="font-[family-name:var(--font-label-md)] text-sm text-on-surface font-semibold mb-2">
+          Alamat
+        </h5>
+        <div className="flex items-start gap-2">
+          <span className="material-symbols-outlined text-secondary mt-1">
+            location_on
+          </span>
+          <p className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant">
+            HiFeed Technoplex
+            <br />
+            Jl. Spatirasmi No. 52
+            <br />
+            Kab. Bandung Barat
+            <br />
+            Jawa Barat
+          </p>
+        </div>
       </div>
 
       <div className="flex flex-col gap-3 md:items-end justify-between">
