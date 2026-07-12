@@ -1,7 +1,27 @@
+"use client";
+
+import { useLang } from "@/contexts/LangContext";
+
+const WHATSAPP_NUMBER = "6285286710314";
+
 export default function Footer() {
-  const whatsappGeneral = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20tertarik%20dengan%20produk%20yogurt%20probiotik.";
-  const whatsappHubungi = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20ingin%20bertanya%20mengenai%20produk%20dan%20layanan.";
-  const whatsappFAQ = "https://wa.me/628971304418?text=Halo%20GutJoy!%20Saya%20ingin%20bertanya%20mengenai%20FAQ.";
+  const { lang, t } = useLang();
+
+  const whatsappGeneral = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    lang === "id"
+      ? "Halo GutJoy! Saya tertarik dengan produk yogurt probiotik."
+      : "Hello GutJoy! I'm interested in probiotic yogurt products."
+  )}`;
+  const whatsappHubungi = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    lang === "id"
+      ? "Halo GutJoy! Saya ingin bertanya mengenai produk dan layanan."
+      : "Hello GutJoy! I want to ask about your products and services."
+  )}`;
+  const whatsappFAQ = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    lang === "id"
+      ? "Halo GutJoy! Saya ingin bertanya mengenai FAQ."
+      : "Hello GutJoy! I want to ask about your FAQ."
+  )}`;
   const instagramLink = "https://www.instagram.com/gutjoylife/";
 
   return (
@@ -10,12 +30,17 @@ export default function Footer() {
       className="w-full py-20 px-4 md:px-16 grid grid-cols-1 md:grid-cols-4 gap-8 bg-surface-container border-t border-surface-variant"
     >
       <div className="flex flex-col gap-4">
-        <div className="font-[family-name:var(--font-headline-md)] text-2xl md:text-3xl font-bold">
-          <span className="text-primary">Gut</span><span className="text-secondary">Joy</span>
+        <div className="font-[family-name:var(--font-brand)] text-2xl md:text-3xl font-bold">
+          <span className="text-primary">Gut</span>
+          <span className="text-secondary">Joy</span>
         </div>
         <p className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant max-w-sm">
-          Happy Gut, Happy Day. Memberikan kebaikan probiotik untuk keseharian
-          yang lebih menyenangkan.
+          {t.footer.tagline1}
+        </p>
+        <p className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant max-w-sm">
+          {t.footer.tagline2}
+          <br />
+          {t.footer.tagline2Sub}
         </p>
         <div className="flex gap-3 mt-4">
           <a
@@ -45,19 +70,19 @@ export default function Footer() {
 
       <div className="flex flex-col gap-3">
         <h5 className="font-[family-name:var(--font-label-md)] text-sm text-on-surface font-semibold mb-2">
-          Tautan Pantas
+          {t.footer.linksTitle}
         </h5>
         <a
           className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline"
           href="#about"
         >
-          Tentang Kami
+          {t.footer.aboutLink}
         </a>
         <a
           className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline"
           href="#partnership"
         >
-          Kemitraan
+          {t.footer.partnershipLink}
         </a>
         <a
           className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline"
@@ -65,7 +90,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Hubungi Kami
+          {t.footer.contactLink}
         </a>
         <a
           className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline"
@@ -73,26 +98,26 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          FAQ
+          {t.footer.faqLink}
         </a>
       </div>
 
       <div className="flex flex-col gap-3">
         <h5 className="font-[family-name:var(--font-label-md)] text-sm text-on-surface font-semibold mb-2">
-          Alamat
+          {t.footer.addressTitle}
         </h5>
         <div className="flex items-start gap-2">
           <span className="material-symbols-outlined text-secondary mt-1">
             location_on
           </span>
           <p className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant">
-            HiFeed Technoplex
+            {t.footer.address.name}
             <br />
-            Jl. Spatirasmi No. 52
+            {t.footer.address.street}
             <br />
-            Kab. Bandung Barat
+            {t.footer.address.district}
             <br />
-            Jawa Barat
+            {t.footer.address.province}
           </p>
         </div>
       </div>
@@ -107,10 +132,10 @@ export default function Footer() {
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-          0897-1304-418
+          {t.footer.phone}
         </a>
         <div className="font-[family-name:var(--font-body-md)] text-base text-secondary mt-8 md:mt-0 text-left md:text-right">
-          © 2024 GutJoy Life. Happy Gut, Happy Day. All rights reserved.
+          {t.footer.copyright}
         </div>
       </div>
     </footer>

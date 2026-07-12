@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Work_Sans } from "next/font/google";
+import { Fredoka, Work_Sans } from "next/font/google";
 import "./globals.css";
+import Providers from "./providers";
 
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta",
+const fredoka = Fredoka({
+  variable: "--font-fredoka",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const workSans = Work_Sans({
@@ -34,9 +35,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${plusJakarta.variable} ${workSans.variable} bg-surface text-on-surface font-body-md antialiased overflow-x-hidden`}
+        className={`${fredoka.variable} ${workSans.variable} bg-surface text-on-surface font-body-md antialiased overflow-x-hidden`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

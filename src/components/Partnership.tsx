@@ -1,57 +1,13 @@
-import Image from "next/image";
+"use client";
 
-const partnershipTiers = [
-  {
-    name: "Reseller",
-    description: "Langkah awal untuk bisnis mandiri.",
-    price: "Mulai 1Jt",
-    isPopular: false,
-    features: ["Modal terjangkau", "Materi promosi digital"],
-    buttonText: "Pilih Paket",
-    buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
-    whatsappText: "Halo GutJoy! Saya tertarik menjadi Reseller. Mohon info paket dan syaratnya.",
-  },
-  {
-    name: "Agen",
-    description: "Jangkauan lebih luas, margin lebih besar.",
-    price: "Mulai 5Jt",
-    isPopular: true,
-    features: [
-      "Harga khusus agen",
-      "Support chiller (S&K)",
-      "Brosur & Spanduk",
-    ],
-    buttonText: "Daftar Agen",
-    buttonStyle: "bg-secondary text-on-secondary hover:bg-on-secondary-fixed-variant shadow-md",
-    whatsappText: "Halo GutJoy! Saya tertarik menjadi Agen. Mohon info paket dan syaratnya.",
-  },
-  {
-    name: "Distributor",
-    description: "Kuasai area dan bangun jaringan.",
-    price: "Hubungi Kami",
-    isPopular: false,
-    features: [
-      "Eksklusivitas wilayah",
-      "Margin maksimal",
-      "Support marketing full",
-    ],
-    buttonText: "Konsultasi",
-    buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
-    whatsappText: "Halo GutJoy! Saya tertarik menjadi Distributor. Mohon info paket dan syaratnya.",
-  },
-  {
-    name: "Horeca",
-    description: "Solusi B2B untuk bisnis Anda.",
-    price: "Custom",
-    isPopular: false,
-    features: ["Kemasan bulk/grosir", "Suplai rutin terjamin"],
-    buttonText: "Hubungi Tim",
-    buttonStyle: "border-2 border-primary text-primary hover:bg-primary/5",
-    whatsappText: "Halo GutJoy! Saya tertarik untuk kemitraan B2B/Horeca. Mohon info dan报价.",
-  },
-];
+import Image from "next/image";
+import { useLang } from "@/contexts/LangContext";
+
+const WHATSAPP_NUMBER = "6285286710314";
 
 export default function Partnership() {
+  const { t } = useLang();
+
   return (
     <section
       className="py-20 px-4 md:px-16 bg-surface-container-low relative"
@@ -64,14 +20,13 @@ export default function Partnership() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <span className="bg-secondary/10 text-secondary font-[family-name:var(--font-label-md)] text-sm px-3 py-1 rounded-full inline-block mb-4">
-            Peluang Bisnis
+            {t.partnership.badge}
           </span>
           <h2 className="font-[family-name:var(--font-headline-lg)] text-2xl md:text-4xl text-on-surface mb-4">
-            Bergabung Bersama GutJoy
+            {t.partnership.headline}
           </h2>
           <p className="font-[family-name:var(--font-body-lg)] text-lg text-on-surface-variant max-w-2xl mx-auto">
-            Pilih paket kemitraan yang sesuai dengan skala bisnis Anda dan mulai
-            sebarkan kebahagiaan.
+            {t.partnership.subheadline}
           </p>
         </div>
 
@@ -81,25 +36,26 @@ export default function Partnership() {
             width={1200}
             height={384}
             className="w-full h-64 md:h-96 object-cover rounded-2xl cloud-shadow"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSmt960YK5WIjDoO4Rb3R5lMJJMKzvqPsqGH9wtzGwYrP2ZfieCPx7hQVmAjEKY7BEnUhlWbHyl_RUvsyiOdckCGehQFRPrpmJYwOlD6KcEbFcg-Ti6qH5Ot6Yz7aCOP6CXAT5IMG-CAX8KpNcwHbCW7hjFGgNZ2LWCZYchQcvgObvxTsjHTQ1qB9NqxBVzohnsWvboFBOMOdjiBy4GW1GF0gnpSQBn6X4mKsOdXL04h68eU8Q_6RDbrS3THFzDqXgVmpeLjz5j-uy"
+            src="/Gambar tengah.png"
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
-          {partnershipTiers.map((tier, index) => {
-            const whatsappLink = `https://wa.me/628971304418?text=${encodeURIComponent(tier.whatsappText)}`;
+          {t.partnership.tiers.map((tier, index) => {
+            const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(tier.whatsappText)}`;
+            const isPopular = index === 1;
             return (
               <div
                 key={index}
                 className={`bg-surface-container-lowest rounded-3xl p-8 flex flex-col border ${
-                  tier.isPopular
+                  isPopular
                     ? "border-2 border-secondary relative transform md:-translate-y-4"
                     : "border-surface-container-high"
                 } cloud-shadow hover-lift`}
               >
-                {tier.isPopular && (
+                {isPopular && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-on-secondary px-4 py-1 rounded-full font-[family-name:var(--font-label-sm)] text-xs tracking-wide uppercase">
-                    Populer
+                    {tier.popular}
                   </div>
                 )}
 
@@ -132,7 +88,11 @@ export default function Partnership() {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3 rounded-lg font-[family-name:var(--font-label-md)] text-sm transition-colors mt-auto text-center ${tier.buttonStyle}`}
+                  className={`w-full py-3 rounded-lg font-[family-name:var(--font-label-md)] text-sm transition-colors mt-auto text-center ${
+                    isPopular
+                      ? "bg-secondary text-on-secondary hover:bg-on-secondary-fixed-variant shadow-md"
+                      : "border-2 border-primary text-primary hover:bg-primary/5"
+                  }`}
                 >
                   {tier.buttonText}
                 </a>

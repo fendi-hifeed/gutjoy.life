@@ -15,15 +15,15 @@
   --color-inverse-on-surface: #eaf1ff;
   --color-outline: #8f6f6e;
   --color-outline-variant: #e4bebc;
-  --color-surface-tint: #bb152c;
-  --color-primary: #b7102a;
+  --color-surface-tint: #dd3453;
+  --color-primary: #dd3453;
   --color-on-primary: #ffffff;
-  --color-primary-container: #db313f;
+  --color-primary-container: #e25c75;
   --color-on-primary-container: #fffbff;
   --color-inverse-primary: #ffb3b1;
-  --color-secondary: #1d4ed8;
+  --color-secondary: #1351aa;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #4069f2;
+  --color-secondary-container: #3a6fc4;
   --color-on-secondary-container: #fffbff;
   --color-tertiary: #5b5c59;
   --color-on-tertiary: #ffffff;
@@ -48,14 +48,15 @@
   --color-background: #f8f9ff;
   --color-on-background: #0d1c2e;
 
-  --font-headline-lg-mobile: "Plus Jakarta Sans", sans-serif;
-  --font-headline-lg: "Plus Jakarta Sans", sans-serif;
-  --font-headline-md: "Plus Jakarta Sans", sans-serif;
+  --font-headline-lg-mobile: var(--font-fredoka), "Fredoka", sans-serif;
+  --font-headline-lg: var(--font-fredoka), "Fredoka", sans-serif;
+  --font-headline-md: var(--font-fredoka), "Fredoka", sans-serif;
   --font-body-lg: "Work Sans", sans-serif;
   --font-body-md: "Work Sans", sans-serif;
   --font-label-md: "Work Sans", sans-serif;
-  --font-headline-xl: "Plus Jakarta Sans", sans-serif;
+  --font-headline-xl: var(--font-fredoka), "Fredoka", sans-serif;
   --font-label-sm: "Work Sans", sans-serif;
+  --font-brand: var(--font-fredoka), "Fredoka", sans-serif;
 
   --spacing-margin-mobile: 16px;
   --spacing-margin-desktop: 64px;
