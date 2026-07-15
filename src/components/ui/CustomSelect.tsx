@@ -6,6 +6,7 @@ import { useLang } from "@/contexts/LangContext";
 interface SelectOption {
   value: string;
   label: string;
+  badge?: string;
 }
 
 interface CustomSelectProps {
@@ -67,9 +68,16 @@ export default function CustomSelect({
             : "bg-surface-container-lowest text-on-surface-variant"
         }`}
       >
-        <span className={selectedOption ? "text-on-surface" : "text-on-surface-variant"}>
-          {selectedOption?.label || placeholder || (lang === "id" ? "-- Pilih --" : "-- Select --")}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className={selectedOption ? "text-on-surface" : "text-on-surface-variant"}>
+            {selectedOption?.label || placeholder || (lang === "id" ? "-- Pilih --" : "-- Select --")}
+          </span>
+          {selectedOption?.badge && (
+            <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">
+              {selectedOption.badge}
+            </span>
+          )}
+        </div>
         <svg
           className={`w-5 h-5 text-on-surface-variant transition-transform ${isOpen ? "rotate-180" : ""}`}
           fill="none"
@@ -114,24 +122,31 @@ export default function CustomSelect({
                   key={option.value}
                   type="button"
                   onClick={() => handleSelect(option.value)}
-                  className={`w-full px-4 py-3 text-left font-[family-name:var(--font-body-md)] text-sm transition-colors flex items-center gap-2 ${
+                  className={`w-full px-4 py-3 text-left font-[family-name:var(--font-body-md)] text-sm transition-colors flex items-center justify-between gap-2 ${
                     option.value === value
                       ? "bg-secondary/10 text-secondary"
                       : "text-on-surface hover:bg-surface-container-high"
                   }`}
                 >
-                  <span className={`w-4 h-4 rounded border flex items-center justify-center ${
-                    option.value === value
-                      ? "bg-secondary border-secondary"
-                      : "border-surface-container-high"
-                  }`}>
-                    {option.value === value && (
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    )}
-                  </span>
-                  {option.label}
+                  <div className="flex items-center gap-2">
+                    <span className={`w-4 h-4 rounded border flex items-center justify-center ${
+                      option.value === value
+                        ? "bg-secondary border-secondary"
+                        : "border-surface-container-high"
+                    }`}>
+                      {option.value === value && (
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      )}
+                    </span>
+                    {option.label}
+                  </div>
+                  {option.badge && (
+                    <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">
+                      {option.badge}
+                    </span>
+                  )}
                 </button>
               ))
             )}

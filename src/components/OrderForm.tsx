@@ -8,13 +8,10 @@ import CustomSelect from "./ui/CustomSelect";
 const WHATSAPP_NUMBER = "6285286710314";
 
 const COURIER_OPTIONS = [
-  { value: "jne", label: "JNE" },
-  { value: "jnt", label: "J&T Express" },
-  { value: "sicepat", label: "SiCepat" },
-  { value: "anteraja", label: "AnterAja" },
-  { value: "grab", label: "Grab/Gojek" },
-  { value: "cod", label: "COD (Bayar di Tempat)" },
-  { value: "pickup", label: "Ambil di Tempat (Pickup)" },
+  { value: "free", label: "Free Ongkir", badge: "Promo" },
+  { value: "paxel", label: "Paxel" },
+  { value: "grabexpress", label: "GrabExpress" },
+  { value: "gosend", label: "GoSend" },
 ];
 
 export default function OrderForm() {
