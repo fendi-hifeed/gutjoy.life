@@ -1,15 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { useLang } from "@/contexts/LangContext";
-import OrderForm from "./OrderForm";
-
-const WHATSAPP_NUMBER = "6285286710314";
+import { useOrderForm } from "@/contexts/OrderFormContext";
 
 export default function Hero() {
   const { lang, t } = useLang();
-  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+  const { openOrderForm } = useOrderForm();
 
   const prefillMessage = lang === "id"
     ? "Saya tertarik untuk membeli yogurt. Bisa info produk dan harga?"
@@ -43,7 +40,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <button
-              onClick={() => setIsOrderFormOpen(true)}
+              onClick={() => openOrderForm(prefillMessage)}
               className="bg-primary text-on-primary font-[family-name:var(--font-label-md)] text-sm px-8 py-3.5 rounded-lg hover:bg-primary-container cloud-shadow transition-all hover:-translate-y-0.5 flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -61,7 +58,6 @@ export default function Hero() {
         </div>
 
         <div className="relative mt-12 lg:mt-0">
-          <OrderForm isOpen={isOrderFormOpen} onClose={() => setIsOrderFormOpen(false)} prefillMessage={prefillMessage} />
           <div className="aspect-square md:aspect-[4/3] lg:aspect-square relative rounded-3xl overflow-hidden cloud-shadow group">
             <Image
               alt="GutJoy Campaign Image"

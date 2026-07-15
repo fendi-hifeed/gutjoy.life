@@ -1,15 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { useLang } from "@/contexts/LangContext";
-import OrderForm from "./OrderForm";
-
-const WHATSAPP_NUMBER = "6285286710314";
+import { useOrderForm } from "@/contexts/OrderFormContext";
 
 export default function Footer() {
   const { lang, t } = useLang();
-  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
-  const [prefillMessage, setPrefillMessage] = useState("");
+  const { openOrderForm } = useOrderForm();
 
   const instagramLink = "https://www.instagram.com/gutjoylife/";
 
@@ -44,10 +40,7 @@ export default function Footer() {
             </svg>
           </a>
           <button
-            onClick={() => {
-              setPrefillMessage(lang === "id" ? "Halo GutJoy! Saya tertarik dengan produk yogurt probiotik." : "Hello GutJoy! I'm interested in probiotic yogurt products.");
-              setIsOrderFormOpen(true);
-            }}
+            onClick={() => openOrderForm(lang === "id" ? "Halo GutJoy! Saya tertarik dengan produk yogurt probiotik." : "Hello GutJoy! I'm interested in probiotic yogurt products.")}
             className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary hover:bg-secondary hover:text-on-secondary transition-colors"
             aria-label="WhatsApp"
           >
@@ -75,19 +68,13 @@ export default function Footer() {
           {t.footer.partnershipLink}
         </a>
         <button
-          onClick={() => {
-            setPrefillMessage(lang === "id" ? "Halo GutJoy! Saya ingin bertanya mengenai produk dan layanan." : "Hello GutJoy! I want to ask about your products and services.");
-            setIsOrderFormOpen(true);
-          }}
+          onClick={() => openOrderForm(lang === "id" ? "Halo GutJoy! Saya ingin bertanya mengenai produk dan layanan." : "Hello GutJoy! I want to ask about your products and services.")}
           className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline text-left"
         >
           {t.footer.contactLink}
         </button>
         <button
-          onClick={() => {
-            setPrefillMessage(lang === "id" ? "Halo GutJoy! Saya ingin bertanya mengenai FAQ." : "Hello GutJoy! I want to ask about your FAQ.");
-            setIsOrderFormOpen(true);
-          }}
+          onClick={() => openOrderForm(lang === "id" ? "Halo GutJoy! Saya ingin bertanya mengenai FAQ." : "Hello GutJoy! I want to ask about your FAQ.")}
           className="font-[family-name:var(--font-body-md)] text-base text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline text-left"
         >
           {t.footer.faqLink}
@@ -116,10 +103,7 @@ export default function Footer() {
 
       <div className="flex flex-col gap-3 md:items-end justify-between">
         <button
-          onClick={() => {
-            setPrefillMessage(lang === "id" ? "Halo GutJoy! Saya ingin bertanya mengenai produk dan layanan." : "Hello GutJoy! I want to ask about your products and services.");
-            setIsOrderFormOpen(true);
-          }}
+          onClick={() => openOrderForm(lang === "id" ? "Halo GutJoy! Saya ingin bertanya mengenai produk dan layanan." : "Hello GutJoy! I want to ask about your products and services.")}
           className="bg-secondary text-on-secondary font-[family-name:var(--font-label-md)] text-sm px-6 py-3 rounded-lg hover:bg-on-secondary-fixed-variant transition-all flex items-center gap-2 w-fit"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -130,12 +114,6 @@ export default function Footer() {
         <div className="font-[family-name:var(--font-body-md)] text-base text-secondary mt-8 md:mt-0 text-left md:text-right">
           {t.footer.copyright}
         </div>
-
-        <OrderForm
-          isOpen={isOrderFormOpen}
-          onClose={() => setIsOrderFormOpen(false)}
-          prefillMessage={prefillMessage}
-        />
       </div>
     </footer>
   );

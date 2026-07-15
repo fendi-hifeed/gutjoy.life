@@ -1,15 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLang } from "@/contexts/LangContext";
+import { useOrderForm } from "@/contexts/OrderFormContext";
 
 const WHATSAPP_NUMBER = "6285286710314";
-
-interface OrderFormProps {
-  isOpen: boolean;
-  onClose: () => void;
-  prefillMessage?: string;
-}
 
 const COURIER_OPTIONS = [
   "JNE",
@@ -21,16 +16,23 @@ const COURIER_OPTIONS = [
   "Ambil di Tempat (Pickup)",
 ];
 
-export default function OrderForm({ isOpen, onClose, prefillMessage }: OrderFormProps) {
+export default function OrderForm() {
   const { lang } = useLang();
+  const { isOpen, prefillMessage, closeOrderForm } = useOrderForm();
   const [formData, setFormData] = useState({
     nama: "",
     whatsapp: "",
     alamat: "",
-    pesanan: prefillMessage || "",
+    pesanan: "",
     ongkir: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setFormData((prev) => ({ ...prev, pesanan: prefillMessage }));
+    }
+  }, [isOpen, prefillMessage]);
 
   if (!isOpen) return null;
 
@@ -52,7 +54,8 @@ export default function OrderForm({ isOpen, onClose, prefillMessage }: OrderForm
 
         const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
         window.open(waUrl, "_blank", "noopener,noreferrer");
-        onClose();
+        closeOrderForm();
+        setFormData({ nama: "", whatsapp: "", alamat: "", pesanan: "", ongkir: "" });
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -63,7 +66,7 @@ export default function OrderForm({ isOpen, onClose, prefillMessage }: OrderForm
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      closeOrderForm();
     }
   };
 
