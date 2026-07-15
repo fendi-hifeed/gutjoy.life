@@ -3,17 +3,18 @@
 import { useState, useEffect } from "react";
 import { useLang } from "@/contexts/LangContext";
 import { useOrderForm } from "@/contexts/OrderFormContext";
+import CustomSelect from "./ui/CustomSelect";
 
 const WHATSAPP_NUMBER = "6285286710314";
 
 const COURIER_OPTIONS = [
-  "JNE",
-  "J&T Express",
-  "SiCepat",
-  "AnterAja",
-  "Grab/Gojek",
-  "COD (Bayar di Tempat)",
-  "Ambil di Tempat (Pickup)",
+  { value: "jne", label: "JNE" },
+  { value: "jnt", label: "J&T Express" },
+  { value: "sicepat", label: "SiCepat" },
+  { value: "anteraja", label: "AnterAja" },
+  { value: "grab", label: "Grab/Gojek" },
+  { value: "cod", label: "COD (Bayar di Tempat)" },
+  { value: "pickup", label: "Ambil di Tempat (Pickup)" },
 ];
 
 export default function OrderForm() {
@@ -156,20 +157,12 @@ export default function OrderForm() {
             <label className="block font-[family-name:var(--font-label-md)] text-sm text-on-surface mb-2">
               {lang === "id" ? "Jasa Pengiriman / Ongkir" : "Courier / Shipping"}
             </label>
-            <select
+            <CustomSelect
+              options={COURIER_OPTIONS}
               value={formData.ongkir}
-              onChange={(e) => setFormData({ ...formData, ongkir: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg border border-surface-container-high bg-surface-container-lowest text-on-surface font-[family-name:var(--font-body-md)] focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all"
-            >
-              <option value="">
-                {lang === "id" ? "-- Pilih Jasa Pengiriman --" : "-- Select Courier --"}
-              </option>
-              {COURIER_OPTIONS.map((courier) => (
-                <option key={courier} value={courier}>
-                  {courier}
-                </option>
-              ))}
-            </select>
+              onChange={(value) => setFormData({ ...formData, ongkir: value })}
+              placeholder={lang === "id" ? "-- Pilih Jasa Pengiriman --" : "-- Select Courier --"}
+            />
           </div>
 
           <button
