@@ -86,7 +86,7 @@ export default function OrderForm() {
             </p>
           </div>
           <button
-            onClick={onClose}
+            onClick={closeOrderForm}
             className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
