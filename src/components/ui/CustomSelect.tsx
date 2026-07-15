@@ -53,11 +53,33 @@ export default function CustomSelect({
     setSearch("");
   };
 
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+    setSearch("");
+    if (!isOpen) {
+      setTimeout(() => {
+        const parent = dropdownRef.current?.closest('[class*="overflow-y-auto"]');
+        if (parent) {
+          const rect = dropdownRef.current?.getBoundingClientRect();
+          const parentRect = (parent as HTMLElement).getBoundingClientRect();
+          if (rect && parentRect) {
+            (parent as HTMLElement).scrollBy({
+              top: rect.top - parentRect.top - 100,
+              behavior: "smooth",
+            });
+          }
+        } else {
+          dropdownRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <div ref={dropdownRef} className="relative">
       <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         className={`w-full px-4 py-3 rounded-lg border text-left font-[family-name:var(--font-body-md)] transition-all flex items-center justify-between ${
           isOpen
             ? "border-secondary ring-2 ring-secondary/20"
@@ -89,7 +111,8 @@ export default function CustomSelect({
       </button>
 
       {isOpen && (
-        <div className="absolute z-50 w-full mt-2 bg-surface-container-lowest rounded-xl border border-surface-container-high cloud-shadow overflow-hidden">
+        <div className="absolute z-50 w-full mt-2 bg-surface-container-lowest rounded-xl border border-surface-container-high cloud-shadow overflow-hidden"
+          style={{ maxHeight: "240px" }}>
           <div className="p-2 border-b border-surface-container-high">
             <div className="relative">
               <svg

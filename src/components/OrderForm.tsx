@@ -150,7 +150,7 @@ export default function OrderForm() {
             />
           </div>
 
-          <div>
+          <div id="courier-select">
             <label className="block font-[family-name:var(--font-label-md)] text-sm text-on-surface mb-2">
               {lang === "id" ? "Jasa Pengiriman / Ongkir" : "Courier / Shipping"}
             </label>
