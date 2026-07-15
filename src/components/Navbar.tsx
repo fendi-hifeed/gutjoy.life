@@ -1,11 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { useLang } from "@/contexts/LangContext";
+import OrderForm from "./OrderForm";
 
 const WHATSAPP_NUMBER = "6285286710314";
 
 export default function Navbar() {
   const { lang, t, toggleLang } = useLang();
+  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+  const [prefillMessage, setPrefillMessage] = useState("");
 
   return (
     <nav

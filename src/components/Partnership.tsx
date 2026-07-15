@@ -1,12 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { useLang } from "@/contexts/LangContext";
+import OrderForm from "./OrderForm";
 
 const WHATSAPP_NUMBER = "6285286710314";
 
 export default function Partnership() {
-  const { t } = useLang();
+  const { lang, t } = useLang();
+  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+  const [prefillMessage, setPrefillMessage] = useState("");
 
   return (
     <section
@@ -42,8 +46,11 @@ export default function Partnership() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
           {t.partnership.tiers.map((tier, index) => {
-            const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(tier.whatsappText)}`;
             const isPopular = index === 1;
+            const handleClick = () => {
+              setPrefillMessage(tier.whatsappText);
+              setIsOrderFormOpen(true);
+            };
             return (
               <div
                 key={index}
@@ -84,10 +91,8 @@ export default function Partnership() {
                   ))}
                 </ul>
 
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={handleClick}
                   className={`w-full py-3 rounded-lg font-[family-name:var(--font-label-md)] text-sm transition-colors mt-auto text-center ${
                     isPopular
                       ? "bg-secondary text-on-secondary hover:bg-on-secondary-fixed-variant shadow-md"
@@ -95,11 +100,17 @@ export default function Partnership() {
                   }`}
                 >
                   {tier.buttonText}
-                </a>
+                </button>
               </div>
             );
           })}
         </div>
+
+        <OrderForm
+          isOpen={isOrderFormOpen}
+          onClose={() => setIsOrderFormOpen(false)}
+          prefillMessage={prefillMessage}
+        />
       </div>
     </section>
   );
